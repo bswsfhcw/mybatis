@@ -5,7 +5,7 @@ import com.tools.entity.SdtzRoleResources;
 public interface SdtzRoleResourcesMapper {
     int deleteByPrimaryKey(Long id);
 
-    int insert(SdtzRoleResources record);
+    int insert(SdtzRoleResources record); 
 
     int insertSelective(SdtzRoleResources record);
 
