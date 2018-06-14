@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE generatorConfiguration        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!--  maven 命令:mybatis-generator:generate -->
+<generatorConfiguration>
+
+	<context id="MySQL2Tables" targetRuntime="MyBatis3">
+		<!-- &lt;!&ndash; 是否去除自动生成的注释 true：是 ： false:否 &ndash;&gt; -->
+		<commentGenerator>
+			<property name="suppressDate" value="true" />
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!-- 注释控制完毕 -->
+		<!-- 配置数据库 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/sdjftz?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false"
+			userId="root" password="root">
+		</jdbcConnection>
+		<!--指定生成的类型为java类型，避免数据库中number等类型字段 -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<!--自动生成的实体的存放包路径 -->
+		<javaModelGenerator targetPackage="com.tools.entity"
+			targetProject="src\main\java\">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<!--自动生成的*Mapper.xml文件存放路径 -->
+		<sqlMapGenerator targetPackage="com.tools.map"
+			targetProject="src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<!--自动生成的*Mapper.java存放路径 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.tools.dao" targetProject="src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<table tableName="sdtz_role_resources" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+			<property name="useActualColumnNames" value="false"/>  
+		</table>
+		<!-- <table tableName="sdtz_sys_role" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+			<property name="useActualColumnNames" value="false"/>  
+			Mybatis自动生成Xml文件，针对字段类型为text等会默认产生XXXXWithBlobs的方法问题
+			<columnOverride column="desc" javaType="java.lang.String"
+				jdbcType="VARCHAR" />
+			<columnOverride column="authodec" javaType="java.lang.String"
+				jdbcType="VARCHAR" />
+		</table> -->
+	</context>
+</generatorConfiguration>
